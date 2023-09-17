@@ -27,7 +27,7 @@ const urls: Urls = [
 
 export default function Navbar() {
   return (
-    <nav className="flex justify-between items-center h-10 px-3">
+    <nav className="flex justify-between items-center h-14 px-3">
       <h1 className=" font-bold text-lg">SteinsLibrary</h1>
       <ul className="flex space-x-4">
         {urls.map((url) => (
