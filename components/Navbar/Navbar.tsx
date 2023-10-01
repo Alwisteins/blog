@@ -66,6 +66,10 @@ export default function Navbar() {
     e.preventDefault();
     //show selected filtered items
     console.log("selected filter: ", checkedItems);
+
+    // Reset checkbox and close Categories popup
+    setCheckedItems([]);
+    setShowCategories(false);
   };
   return (
     <>
