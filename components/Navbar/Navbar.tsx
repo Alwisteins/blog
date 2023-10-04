@@ -31,9 +31,14 @@ const urls: Urls = [
 export default function Navbar() {
   // handle popup categories
   const [showCategories, setShowCategories] = useState(false);
-
   const toggleCategories = () => {
     setShowCategories(!showCategories);
+  };
+
+  //handle onclick navbar
+  const [isActive, setIsActive] = useState("");
+  const toggleIsActive = (navlink: string) => {
+    setIsActive(navlink);
   };
 
   return (
@@ -53,13 +58,23 @@ export default function Navbar() {
                   {url.title}
                 </button>
               ) : (
-                <Link href={url.target}>{url.title}</Link>
+                <Link
+                  href={url.target}
+                  className={`${
+                    isActive === url.title ? "text-amber-600" : "text-black"
+                  }`}
+                  onClick={() => toggleIsActive(url.title)}
+                >
+                  {url.title}
+                </Link>
               )}
             </li>
           ))}
         </ul>
       </nav>
-      {showCategories && <CategoriesPopup setShowCategories={setShowCategories} />}
+      {showCategories && (
+        <CategoriesPopup setShowCategories={setShowCategories} />
+      )}
     </>
   );
 }
